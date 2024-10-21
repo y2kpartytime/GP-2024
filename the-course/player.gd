@@ -13,10 +13,18 @@ const TURN_RATE = 180
 
 func print_stuff():
 	DebugDraw2D.set_text("pos", position)
+	DebugDraw2D.set_text("global_pos", global_position)
 	DebugDraw2D.set_text("rot", rotation)
+	DebugDraw2D.set_text("rot deg", rad_to_deg(rotation_degrees))
+	DebugDraw2D.set_text("transform.x", rotation)
+	DebugDraw2D.set_text("transform.y", rotation)
+	DebugDraw2D.set_text("global_transform.x", global_transform.x)
+	DebugDraw2D.set_text("global_transform.y", global_transform.y)
+	DebugDraw2D.set_text("vel", velocity)
+	
+
 
 func _physics_process(delta: float) -> void:
-	
 	var r = Input.get_axis("turn_left", "turn_right")
 	print(r)
 
@@ -24,7 +32,6 @@ func _physics_process(delta: float) -> void:
 	rotate(rot)
 	
 	var f = Input.get_axis("move_backwards", "move_forwards")
-
 	var vel = transform.y * f * SPEED
 	print(transform.y)
 	velocity = vel

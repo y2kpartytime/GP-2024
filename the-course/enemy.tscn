@@ -1,26 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://k6isvcf6k1l"]
+[gd_scene load_steps=6 format=3 uid="uid://k6isvcf6k1l"]
 
 [ext_resource type="Texture2D" uid="uid://b6acfijit28y8" path="res://assets/PNG/Sprites X2/Missiles/spaceMissiles_004.png" id="1_giw6p"]
+[ext_resource type="PackedScene" uid="uid://nb8daasaeu3i" path="res://explosion.tscn" id="2_5pj40"]
 [ext_resource type="Texture2D" uid="uid://bapklf5y3sm51" path="res://assets/PNG/Sprites X2/Rocket parts/spaceRocketParts_030.png" id="2_7bopo"]
 
 [sub_resource type="GDScript" id="GDScript_6b4vl"]
 resource_name = "enemy"
 script/source = "extends Sprite2D
 
+@export var player:Node2D
+@export var explosion : PackedScene
+@export var speed = 100
 @onready var hitbox: Area2D = $Area2D
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
 
+func _ready() -> void:
+	pass 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	# Enemy Chase Logic
+	var to_player = player.global_position - global_position
+	to_player = to_player.normalized()
+	global_position = global_position + (to_player * speed * delta)
 
 
+# Enemy Death
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group(\"Bullet\"):
+		var boom = explosion.instantiate()
+		boom.global_position = global_position
+		boom.emitting = true
+		get_tree().root.add_child(boom)
 		queue_free()
 "
 
@@ -31,6 +42,7 @@ size = Vector2(28.444, 20)
 scale = Vector2(0.913576, 0.46566)
 texture = ExtResource("1_giw6p")
 script = SubResource("GDScript_6b4vl")
+explosion = ExtResource("2_5pj40")
 
 [node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
 

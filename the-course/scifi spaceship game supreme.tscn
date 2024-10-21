@@ -37,8 +37,9 @@ position = Vector2(-3.73395, -126.042)
 scale = Vector2(6.34339, 2.63738)
 shape = SubResource("RectangleShape2D_6hplp")
 
-[node name="Sprite" parent="." instance=ExtResource("3_36rll")]
+[node name="Sprite" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_36rll")]
 position = Vector2(433, 271)
+player = NodePath("../player")
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
@@ -46,8 +47,9 @@ offset_bottom = 23.0
 text = "123"
 
 [node name="SpaceStation021" type="Sprite2D" parent="."]
-position = Vector2(290, 423)
-rotation = -0.538225
+position = Vector2(-52, 584)
+rotation = 0.458752
+scale = Vector2(0.56378, 0.639323)
 texture = ExtResource("4_lpspy")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="SpaceStation021"]
@@ -56,9 +58,4 @@ texture = ExtResource("4_lpspy")
 position = Vector2(1.78814e-06, -4.76837e-07)
 rotation = -3.14159
 scale = Vector2(20.527, -3.11265)
-shape = SubResource("RectangleShape2D_6hplp")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="SpaceStation021/StaticBody2D"]
-position = Vector2(-3.73395, -126.042)
-scale = Vector2(6.34339, 2.63738)
 shape = SubResource("RectangleShape2D_6hplp")
