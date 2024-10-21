@@ -11,6 +11,10 @@ const JUMP_VELOCITY = -400.0
 
 const TURN_RATE = 180
 
+func print_stuff():
+	DebugDraw2D.set_text("pos", position)
+	DebugDraw2D.set_text("rot", rotation)
+
 func _physics_process(delta: float) -> void:
 	
 	var r = Input.get_axis("turn_left", "turn_right")
@@ -34,6 +38,7 @@ func _physics_process(delta: float) -> void:
 		get_parent().add_child(b)
 		$Timer.start()
 	
+	print_stuff()
 	move_and_slide()
 
 func _on_timer_timeout():

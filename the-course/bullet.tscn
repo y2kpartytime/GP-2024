@@ -2,11 +2,10 @@
 
 [ext_resource type="Script" path="res://bullet.gd" id="1_csdhu"]
 [ext_resource type="PackedScene" uid="uid://nb8daasaeu3i" path="res://explosion.tscn" id="2_hvpqa"]
+[ext_resource type="Texture2D" uid="uid://dy8r52gbpam6c" path="res://assets/PNG/Sprites/Rocket parts/spaceRocketParts_002.png" id="3_5mu84"]
 [ext_resource type="AudioStream" uid="uid://dxtc48o5qwpl8" path="res://sounds/Laser_Shoot38.wav" id="3_ba8d6"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ouehp"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_mkyav"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5mn0g"]
 size = Vector2(10, 10)
@@ -17,10 +16,11 @@ speed = 500
 explosion = ExtResource("2_hvpqa")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.313726, 0.568627, 0.701961, 1)
+self_modulate = Color(62.162, 22.703, 0, 1)
 material = SubResource("CanvasItemMaterial_ouehp")
-scale = Vector2(10, 10)
-texture = SubResource("CanvasTexture_mkyav")
+rotation = -3.14159
+scale = Vector2(0.15075, 0.129252)
+texture = ExtResource("3_5mu84")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0

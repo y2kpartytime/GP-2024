@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://k6isvcf6k1l"]
+[gd_scene load_steps=5 format=3 uid="uid://k6isvcf6k1l"]
 
 [ext_resource type="Texture2D" uid="uid://b6acfijit28y8" path="res://assets/PNG/Sprites X2/Missiles/spaceMissiles_004.png" id="1_giw6p"]
+[ext_resource type="Texture2D" uid="uid://bapklf5y3sm51" path="res://assets/PNG/Sprites X2/Rocket parts/spaceRocketParts_030.png" id="2_7bopo"]
 
 [sub_resource type="GDScript" id="GDScript_6b4vl"]
 resource_name = "enemy"
@@ -27,6 +28,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 size = Vector2(28.444, 20)
 
 [node name="Sprite" type="Sprite2D"]
+scale = Vector2(0.913576, 0.46566)
 texture = ExtResource("1_giw6p")
 script = SubResource("GDScript_6b4vl")
 
@@ -37,5 +39,15 @@ scale = Vector2(1.19533, 5.07949)
 shape = SubResource("RectangleShape2D_7lku5")
 
 [node name="BulletSpawn" type="Marker2D" parent="."]
+
+[node name="SpaceRocketParts030" type="Sprite2D" parent="."]
+position = Vector2(-15.3432, 34.0688)
+scale = Vector2(0.278934, 0.142631)
+texture = ExtResource("2_7bopo")
+
+[node name="SpaceRocketParts031" type="Sprite2D" parent="."]
+position = Vector2(15.3432, 34.0688)
+scale = Vector2(0.278934, 0.142631)
+texture = ExtResource("2_7bopo")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
