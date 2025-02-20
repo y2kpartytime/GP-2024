@@ -5,6 +5,7 @@
 
 [node name="my_ShooterGame" type="Node2D"]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("3_kqg68")]
+[node name="Player" parent="." instance=ExtResource("3_kqg68")]
+position = Vector2(570, 308)
 
 [node name="EnemySpawn" parent="." instance=ExtResource("2_7d0sk")]

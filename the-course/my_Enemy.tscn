@@ -7,7 +7,7 @@
 size = Vector2(88, 51)
 
 [node name="Enemy" type="Node2D"]
-position = Vector2(583, 340)
+position = Vector2(585, 340)
 script = ExtResource("1_uqwrf")
 
 [node name="Synth" type="AudioStreamPlayer" parent="."]

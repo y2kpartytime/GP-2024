@@ -5,7 +5,6 @@ extends Marker2D
 
 @export var radius:float = 10
 @export var count:int = 20
-
 @export var rate:int = 10
 
 func spawn():
