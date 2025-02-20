@@ -1,7 +1,14 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=3 format=3 uid="uid://c8sk7o1gyugmr"]
 
 [ext_resource type="PackedScene" uid="uid://cu4hc7fgpaiiq" path="res://t_Enemy.tscn" id="1_a32ba"]
 [ext_resource type="PackedScene" uid="uid://pifdmhvjbddv" path="res://t_Enemy02.tscn" id="2_7gcff"]
+=======
+[gd_scene load_steps=3 format=3 uid="uid://bku4xc5pifkjl"]
+
+[ext_resource type="PackedScene" uid="uid://cidlfsx7h7tow" path="res://t_Enemy.tscn" id="1_a32ba"]
+[ext_resource type="PackedScene" uid="uid://ctp0vo3jj35o2" path="res://t_Enemy02.tscn" id="2_7gcff"]
+>>>>>>> Stashed changes
 
 [node name="t_ShooterGame" type="Node2D"]
 

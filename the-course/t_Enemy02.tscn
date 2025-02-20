@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=4 format=3 uid="uid://pifdmhvjbddv"]
+=======
+[gd_scene load_steps=4 format=3 uid="uid://ctp0vo3jj35o2"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://t_EnemyScript02.gd" id="1_t5dbr"]
 [ext_resource type="AudioStream" uid="uid://cxvpo2egevp8l" path="res://sounds/jump.wav" id="2_tmh3c"]
