@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8sk7o1gyugmr"]
+
+[ext_resource type="PackedScene" uid="uid://bxnj15hxyh5cm" path="res://my_EnemySpawn.tscn" id="2_7d0sk"]
+[ext_resource type="PackedScene" uid="uid://bk5ltxsfm1erh" path="res://my_Player.tscn" id="3_kqg68"]
+
+[node name="my_ShooterGame" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_kqg68")]
+
+[node name="EnemySpawn" parent="." instance=ExtResource("2_7d0sk")]

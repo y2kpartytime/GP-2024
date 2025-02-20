@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxnj15hxyh5cm"]
+
+[ext_resource type="Script" path="res://my_EnemySpawner.gd" id="1_qnpmy"]
+[ext_resource type="PackedScene" uid="uid://mnj5awkm61k4" path="res://my_Enemy.tscn" id="2_62yoe"]
+
+[node name="EnemySpawn" type="Marker2D"]
+position = Vector2(570, 303)
+script = ExtResource("1_qnpmy")
+ufo_scene = ExtResource("2_62yoe")
+radius = 250.0
+count = 5
