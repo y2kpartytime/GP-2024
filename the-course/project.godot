@@ -11,13 +11,22 @@ config_version=5
 [application]
 
 config/name="Game Programming 2024"
+<<<<<<< Updated upstream
 run/main_scene="res://shooter_game.tscn"
+=======
+run/main_scene="uid://5xmg4kyjea30"
+>>>>>>> Stashed changes
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/fullsize=false
 config/icon="res://icon.svg"
 
 [display]
 
+<<<<<<< Updated upstream
+=======
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+>>>>>>> Stashed changes
 window/size/initial_position_type=0
 window/size/resizable=false
 
