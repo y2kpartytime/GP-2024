@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c1hhyf2tyalta"]
 
-[ext_resource type="Script" path="res://flower_1.gd" id="1_tu0ga"]
+[ext_resource type="Script" uid="uid://v8dj24wwd5af" path="res://flower_1.gd" id="1_tu0ga"]
 
 [node name="really cool nice" type="Node2D"]
 position = Vector2(119, 116)

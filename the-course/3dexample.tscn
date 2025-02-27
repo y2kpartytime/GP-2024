@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cg687frv2xee7"]
 
 [ext_resource type="PackedScene" uid="uid://cr2f7gsnwby5" path="res://mesh_instance_3d.tscn" id="1_5jsri"]
-[ext_resource type="Script" path="res://cube_move.gd" id="1_sqcmj"]
+[ext_resource type="Script" uid="uid://b5sdwbj35w7m" path="res://cube_move.gd" id="1_sqcmj"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_d5ecd"]
 

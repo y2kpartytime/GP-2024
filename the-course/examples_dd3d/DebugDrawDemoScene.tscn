@@ -1,11 +1,9 @@
 [gd_scene load_steps=39 format=3 uid="uid://c3sccy6x0ht5j"]
 
-[ext_resource type="Script" path="res://examples_dd3d/DebugDrawDemoScene.gd" id="1"]
-[ext_resource type="FontFile" uid="uid://erdgllynwqkw" path="res://examples_dd3d/Roboto-Bold.ttf" id="2_aedbq"]
-[ext_resource type="Script" path="res://examples_dd3d/demo_camera_movement.gd" id="3_3m1mp"]
-[ext_resource type="Script" path="res://examples_dd3d/demo_music_visualizer.gd" id="4_eq2lt"]
-[ext_resource type="Script" path="res://examples_dd3d/demo_settings_panel.gd" id="5_31v5h"]
-[ext_resource type="Script" path="res://examples_dd3d/demo_web_docs_version_select.gd" id="6_07f7q"]
+[ext_resource type="Script" uid="uid://b77kydvikcwp" path="res://examples_dd3d/DebugDrawDemoScene.gd" id="1"]
+
+[sub_resource type="Resource" id="Resource_bqqhu"]
+metadata/__load_path__ = "res://examples_dd3d/Roboto-Bold.ttf"
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_87638"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -21,6 +19,9 @@ fog_light_energy = 0.41
 fog_density = 0.0757
 fog_height = 0.5
 fog_height_density = 4.6102
+
+[sub_resource type="Resource" id="Resource_hafgj"]
+metadata/__load_path__ = "res://examples_dd3d/demo_camera_movement.gd"
 
 [sub_resource type="Animation" id="9"]
 resource_name = "New Anim"
@@ -128,8 +129,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nj4nv"]
 _data = {
-"New Anim": SubResource("9"),
-"RESET": SubResource("10")
+&"New Anim": SubResource("9"),
+&"RESET": SubResource("10")
 }
 
 [sub_resource type="Shader" id="Shader_621vv"]
@@ -169,7 +170,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cq37i"]
 _data = {
-"RESET": SubResource("Animation_ucqh5")
+&"RESET": SubResource("Animation_ucqh5")
 }
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_tigpa"]
@@ -225,8 +226,8 @@ tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vh8ml"]
 _data = {
-"New Anim": SubResource("6"),
-"RESET": SubResource("7")
+&"New Anim": SubResource("6"),
+&"RESET": SubResource("7")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rbfyn"]
@@ -261,7 +262,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a7f1a"]
 _data = {
-"RESET": SubResource("8")
+&"RESET": SubResource("8")
 }
 
 [sub_resource type="Shader" id="Shader_3cmiq"]
@@ -284,6 +285,9 @@ shader = SubResource("Shader_3cmiq")
 [sub_resource type="BoxMesh" id="BoxMesh_0xv07"]
 material = SubResource("ShaderMaterial_t3isk")
 
+[sub_resource type="Resource" id="Resource_oxqvm"]
+metadata/__load_path__ = "res://examples_dd3d/demo_music_visualizer.gd"
+
 [sub_resource type="Gradient" id="Gradient_tup4c"]
 offsets = PackedFloat32Array(0.00471698, 0.316038, 0.646226, 1)
 colors = PackedColorArray(0, 0.0156863, 1, 1, 0.0988327, 1, 0.122977, 1, 1, 0.111986, 0.118936, 1, 0, 0.0156863, 1, 1)
@@ -305,10 +309,16 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0ity1"]
 _data = {
-"RESET": SubResource("Animation_n750a")
+&"RESET": SubResource("Animation_n750a")
 }
 
 [sub_resource type="Theme" id="3"]
+
+[sub_resource type="Resource" id="Resource_80lol"]
+metadata/__load_path__ = "res://examples_dd3d/demo_settings_panel.gd"
+
+[sub_resource type="Resource" id="Resource_du31y"]
+metadata/__load_path__ = "res://examples_dd3d/demo_web_docs_version_select.gd"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oj5gf"]
 content_margin_top = 5.0
@@ -328,7 +338,7 @@ corner_radius_bottom_left = 4
 [node name="DebugDrawDemoScene" type="Node3D"]
 process_priority = 1
 script = ExtResource("1")
-custom_font = ExtResource("2_aedbq")
+custom_font = SubResource("Resource_bqqhu")
 text_groups_position = 2
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -345,7 +355,7 @@ cull_mask = 1
 current = true
 fov = 53.0
 far = 100.0
-script = ExtResource("3_3m1mp")
+script = SubResource("Resource_hafgj")
 
 [node name="Panel" type="PanelContainer" parent="."]
 visible = false
@@ -699,7 +709,7 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 50.0
 offset_bottom = 50.0
-script = ExtResource("4_eq2lt")
+script = SubResource("Resource_oxqvm")
 colors = SubResource("Gradient_tup4c")
 
 [node name="OpenFile" type="Button" parent="MusicVisualizer"]
@@ -766,7 +776,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme = SubResource("3")
-script = ExtResource("5_31v5h")
+script = SubResource("Resource_80lol")
 switch_to_scene = "res://examples_dd3d/DebugDrawDemoSceneCS.tscn"
 metadata/_edit_lock_ = true
 
@@ -792,7 +802,7 @@ size_flags_vertical = 8
 [node name="VersionBlock" type="HBoxContainer" parent="Settings/HBox/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-script = ExtResource("6_07f7q")
+script = SubResource("Resource_du31y")
 
 [node name="Label" type="Label" parent="Settings/HBox/VBoxContainer/VersionBlock"]
 layout_mode = 2

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bnbsudran10x6"]
 
-[ext_resource type="Script" path="res://note.gd" id="1_f6fa7"]
+[ext_resource type="Script" uid="uid://ly54f0pkkxca" path="res://note.gd" id="1_f6fa7"]
 
 [node name="note" type="ColorRect"]
 offset_left = 139.0

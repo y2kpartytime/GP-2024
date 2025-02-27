@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dogoya3fntpbk"]
 
-[ext_resource type="Script" path="res://dude.gd" id="1_prwsp"]
+[ext_resource type="Script" uid="uid://d2cl3lf8mhede" path="res://dude.gd" id="1_prwsp"]
 [ext_resource type="PackedScene" uid="uid://dl7bn3bgrqbcg" path="res://dude_bullet.tscn" id="2_62y41"]
 [ext_resource type="AudioStream" uid="uid://b1q0g70jukbs8" path="res://sounds/synth2.wav" id="3_62y41"]
 

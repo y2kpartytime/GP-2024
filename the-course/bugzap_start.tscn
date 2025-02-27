@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dmbwcl4pfwrj3"]
 
-[ext_resource type="Script" path="res://bugzap_start.gd" id="1_lfrbr"]
+[ext_resource type="Script" uid="uid://b07agrid3viis" path="res://bugzap_start.gd" id="1_lfrbr"]
 [ext_resource type="Theme" uid="uid://dyroetfulq0o6" path="res://bryans_theme.tres" id="2_ucnvt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_s0u6b"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://mnj5awkm61k4"]
 
-[ext_resource type="Script" path="res://my_EnemyScript.gd" id="1_uqwrf"]
+[ext_resource type="Script" uid="uid://dh6p5q25rglnm" path="res://my_EnemyScript.gd" id="1_uqwrf"]
 [ext_resource type="AudioStream" uid="uid://cxvpo2egevp8l" path="res://sounds/jump.wav" id="2_uavvw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nndh7"]
