@@ -1,0 +1,196 @@
+[gd_scene load_steps=12 format=3 uid="uid://d0bkbuxgkarbl"]
+
+[ext_resource type="Texture2D" uid="uid://dnku55dcgmtb2" path="res://icon.svg" id="1_ja5bo"]
+[ext_resource type="Texture2D" uid="uid://cc8adl4mm683o" path="res://sprites/troll.png" id="2_obxhj"]
+[ext_resource type="Texture2D" uid="uid://c1ulk068s443n" path="res://sprites/devildude.webp" id="3_dvxeq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dnfim"]
+size = Vector2(123, 125)
+
+[sub_resource type="GDScript" id="GDScript_n0tpi"]
+resource_name = "PlayerScript"
+script/source = "extends CharacterBody2D
+
+const SPEED = 300.0
+const JUMP_VELOCITY = -500.0
+
+var score = 0
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction := Input.get_axis(\"ui_left\", \"ui_right\")
+	if direction:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	move_and_slide()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smlai"]
+size = Vector2(122, 124)
+
+[sub_resource type="GDScript" id="GDScript_obxhj"]
+resource_name = "CoinScript"
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_body_entered(body: Node2D) -> void:#
+	if body.name == \"Jump man\":
+		body.score = body.score +1
+		print(body.score)
+		self.queue_free()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dvxeq"]
+size = Vector2(72, 67)
+
+[sub_resource type="GDScript" id="GDScript_rwdxm"]
+resource_name = "EnemyScript"
+script/source = "class_name Enemy extends CharacterBody2D 
+
+var speed = 100
+
+var attacking = false
+
+func _process(delta: float) -> void:
+	if attacking:
+		position.x = position.x - speed * delta
+		
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.name == \"Jump dude\":
+		attacking = true
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8wdjl"]
+radius = 222.767
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4mibs"]
+size = Vector2(96, 125)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="platform1" type="StaticBody2D" parent="."]
+position = Vector2(197, 464)
+
+[node name="Sprite2D" type="Sprite2D" parent="platform1"]
+scale = Vector2(2.88, 1.6)
+texture = ExtResource("1_ja5bo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform1"]
+position = Vector2(-0.5, -0.5)
+scale = Vector2(2.88, 1.6)
+shape = SubResource("RectangleShape2D_dnfim")
+
+[node name="platform2" type="StaticBody2D" parent="."]
+position = Vector2(580, 531)
+
+[node name="Sprite2D" type="Sprite2D" parent="platform2"]
+scale = Vector2(2.88, 1.6)
+texture = ExtResource("1_ja5bo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform2"]
+position = Vector2(-0.5, -0.5)
+scale = Vector2(2.88, 1.6)
+shape = SubResource("RectangleShape2D_dnfim")
+
+[node name="platform3" type="StaticBody2D" parent="."]
+position = Vector2(969, 455)
+
+[node name="Sprite2D" type="Sprite2D" parent="platform3"]
+scale = Vector2(2.88, 1.6)
+texture = ExtResource("1_ja5bo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform3"]
+position = Vector2(-0.5, -0.5)
+scale = Vector2(2.88, 1.6)
+shape = SubResource("RectangleShape2D_dnfim")
+
+[node name="Jump man" type="CharacterBody2D" parent="."]
+position = Vector2(92, 221)
+script = SubResource("GDScript_n0tpi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Jump man"]
+texture = ExtResource("1_ja5bo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jump man"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_smlai")
+
+[node name="Coin" type="Area2D" parent="."]
+position = Vector2(288, 269)
+script = SubResource("GDScript_obxhj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin"]
+texture = ExtResource("2_obxhj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin"]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_dvxeq")
+
+[node name="Coin2" type="Area2D" parent="."]
+position = Vector2(484, 350)
+script = SubResource("GDScript_obxhj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin2"]
+texture = ExtResource("2_obxhj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin2"]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_dvxeq")
+
+[node name="Coin3" type="Area2D" parent="."]
+position = Vector2(660, 351)
+script = SubResource("GDScript_obxhj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin3"]
+texture = ExtResource("2_obxhj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin3"]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_dvxeq")
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+position = Vector2(851, 287)
+script = SubResource("GDScript_rwdxm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+scale = Vector2(0.384828, 0.384828)
+texture = ExtResource("3_dvxeq")
+
+[node name="Area2D" type="Area2D" parent="Enemy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D"]
+shape = SubResource("CircleShape2D_8wdjl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_4mibs")
+
+[connection signal="body_entered" from="Coin" to="Jump man" method="_on_coin_body_entered"]
+[connection signal="body_entered" from="Coin" to="Coin" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin2" to="Jump man" method="_on_coin_body_entered"]
+[connection signal="body_entered" from="Coin2" to="Coin2" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin3" to="Jump man" method="_on_coin_body_entered"]
+[connection signal="body_entered" from="Coin3" to="Coin3" method="_on_body_entered"]
+[connection signal="body_entered" from="Enemy/Area2D" to="Enemy" method="_on_area_2d_body_entered"]
